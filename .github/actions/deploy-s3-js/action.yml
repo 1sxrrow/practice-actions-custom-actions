@@ -1,5 +1,19 @@
 name: "Deploy aws s3"
 description: "Deploy static website to s3 bucket"
-runs: 
+inputs:
+  bucket:
+    description: "S3 Bucket Name"
+    required: true
+  bucket-region:
+    desciption: "S3 Bucket Region"
+    required: false
+    default: "us-east-1"
+  dist-folder:
+    description: "Folder containing the deployable files"
+    required: true
+outputs:
+  website-url:
+    description: "url of deployed website"
+runs:
   using: "node16"
   main: "main.js"
